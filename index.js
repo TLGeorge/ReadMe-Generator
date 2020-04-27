@@ -3,6 +3,9 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
+// link to file to format readme file
+const generateMarkdown = require("./generateMarkdown")
+
 // Make sure that promises are returned
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -57,51 +60,9 @@ function promptUser() {
     ]);
 }
 
-// Build README using answers from promptUser
-function generateMarkdown(answers) {
-    return `
-    # Project title
-    https://img.shields.io/badge/README.md-Generator-orange
-    ${answers.projectTitle} 
- 
-    ## Table of Contents
-    * [Description](#Description)
-    * [Installation](#Installation)
-    * [Usage](#Usage)
-    * [License](#License)
-    * [Contributing](#Contributing)
-    * [Tests](#Tests)
-    * [Questions](#Questions)
-    
-    ## Description
-    ${answers.description}
 
-    ## Installation
-    ${answers.installation}
 
-    ## Usage
-    ${answers.usage}
-
-    ## License
-    ${answers.license}
-
-    ## Contributing
-    ${answers.contributing}
-
-    ## Tests
-    ${answers.tests}
-
-    ## Questions
-    ![GitHub Profile Pic](https://avatars.githubusercontent.com/${answers.username})
-      
-    
-    ## Email
-    ${answers.emailQuestions}
-    
-    `;
-}
-
-// Define process of prompting URLSearchParams, compiling answers, and writing ReadMe based on answers 
+// Define process of prompting URLSearchParams, compiling answers, and writing ReadMe (using markdown format) based on answers 
 async function init() {
     console.log("Let's begin!")
     try {

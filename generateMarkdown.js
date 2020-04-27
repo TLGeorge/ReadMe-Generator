@@ -1,5 +1,6 @@
-
-# ReadMe.md Generator
+function generateMarkdown(answers) {
+  return `
+# ${answers.projectTitle}
   https://img.shields.io/badge/README.md-Generator-orange
     
  
@@ -13,27 +14,31 @@
  * [Questions](#Questions)
     
  ## Description
- A CLI Application to generate a README.md file based on user's input.
+ ${answers.description}
 
  ## Installation
- Get code from GitHub repo and run "NPM install" in command line.
+ ${answers.installation}
 
  ## Usage
- Generating quick, high-quality ReadMe.md file for GitHub repositories.
+ ${answers.usage}
 
  ## License
- none
+ ${answers.license}
 
  ## Contributing
- undefined
+ ${answers.contributing}
 
  ## Tests
-    test
+    ${answers.tests}
 
  ## Questions
-    ![GitHub Profile Pic](https://avatars.githubusercontent.com/TLGeorge)
+    ![GitHub Profile Pic](https://avatars.githubusercontent.com/${answers.username})
       
     
  ## Email
-    Taneishalg@gmail.com
+    ${answers.emailQuestions}
       
+`;
+}
+
+module.exports = generateMarkdown;
