@@ -17,7 +17,7 @@ function promptUser() {
         {
             type: "input",
             name: "projectTitle",
-            message: "What is the name of your project/Repo?"
+            message: "What is the name of your Project?"
         },
         {
             type: "input",
@@ -27,12 +27,12 @@ function promptUser() {
         {
             type: "input",
             name: "installation",
-            message: ""
+            message: "How should this application be installed for use?"
         },
         {
             type: "input",
             name: "usage",
-            message: "What will this project be used for? How should it be used?"
+            message: "What will this project be used for?"
         },
         {
             type: "input",
@@ -53,16 +53,16 @@ function promptUser() {
             type: "input",
             name: "emailQuestions",
             message: "What is your GitHub email address?"
-        },
-    ])
+        }
+    ]);
 }
 
 // Build README using answers from promptUser
-function generateMarkdown(data) {
+function generateMarkdown(answers) {
     return `
     # Project title
     https://img.shields.io/badge/README.md-Generator-orange
-    ${data.projectTitle} 
+    ${answers.projectTitle} 
  
     ## Table of Contents
     * [Description](#Description)
@@ -74,45 +74,47 @@ function generateMarkdown(data) {
     * [Questions](#Questions)
     
     ## Description
-    ${data.description}
+    ${answers.description}
 
     ## Installation
-    ${data.installation}
+    ${answers.installation}
 
     ## Usage
-    ${data.usage}
+    ${answers.usage}
 
     ## License
-    ${data.license}
+    ${answers.license}
 
     ## Contributing
-    ${data.contributing}
+    ${answers.contributing}
 
     ## Tests
-    ${data.tests}
+    ${answers.tests}
 
     ## Questions
-    ![GitHub Profile Pic](https://avatars.githubusercontent.com/${data.username})
+    ![GitHub Profile Pic](https://avatars.githubusercontent.com/${answers.username})
       
     
     ## Email
-    ${data.emailQuestions}
+    ${answers.emailQuestions}
     
     `;
 }
 
-function init() {
-    promptUser()
-        .then(function (answers) {
-            const markdown = generateMarkdown(answers);
-            return writeFileAsync("README.md", markdown);
-        })
-    then(function () {
-        console.log("Successfully completed README.md file!");
-    })
-        .catch(function (err) {
-            console.log(err);
-        });
-};
+async function init() {
+    console.log("Let's begin!")
+    try {
+        const answers = await promptUser();
+
+        const markdown = generateMarkdown(answers);
+
+        await writeFileAsync("README.md", markdown);
+
+        console.log("Successfully generated README.md file!");
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 init();
+
