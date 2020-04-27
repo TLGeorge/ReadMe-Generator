@@ -39,11 +39,6 @@ function promptUser() {
         },
         {
             type: "input",
-            name: "license",
-            message: "What licenses are required to run this application?"
-        },
-        {
-            type: "input",
             name: "conributing",
             message: "Who contributed to this project?"
         },

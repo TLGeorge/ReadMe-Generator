@@ -1,7 +1,7 @@
 function generateMarkdown(answers) {
   return `
 # ${answers.projectTitle}
-  https://img.shields.io/badge/README.md-Generator-orange
+![Custom badge](https://img.shields.io/badge/README.md-Generator-orange)
     
  
 ## Table of Contents
@@ -29,14 +29,14 @@ function generateMarkdown(answers) {
  ${answers.contributing}
 
  ## Tests
-    ${answers.tests}
+  ${answers.tests}
 
  ## Questions
-    ![GitHub Profile Pic](https://avatars.githubusercontent.com/${answers.username})
+  ![GitHub Profile Pic](https://avatars.githubusercontent.com/${answers.username})
       
     
  ## Email
-    ${answers.emailQuestions}
+  ${answers.emailQuestions}
       
 `;
 }

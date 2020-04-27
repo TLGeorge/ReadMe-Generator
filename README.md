@@ -1,6 +1,6 @@
 
-# ReadMe.md Generator
-  https://img.shields.io/badge/README.md-Generator-orange
+# README.md Generator
+![Custom badge](https://img.shields.io/badge/README.md-Generator-orange)
     
  
 ## Table of Contents
@@ -13,27 +13,27 @@
  * [Questions](#Questions)
     
  ## Description
- A CLI Application to generate a README.md file based on user's input.
+ CLI Application to generate README.md based on user's input.
 
  ## Installation
- Get code from GitHub repo and run "NPM install" in command line.
+ Get code from GitHub repo, run "npm install" then "node index.js" within command line for folder/repo location
 
  ## Usage
- Generating quick, high-quality ReadMe.md file for GitHub repositories.
+ Quickly generate high-quality README.md file for your GitHub Respoitory
 
  ## License
- none
+ undefined
 
  ## Contributing
  undefined
 
  ## Tests
-    test
+  Test
 
  ## Questions
-    ![GitHub Profile Pic](https://avatars.githubusercontent.com/TLGeorge)
+  ![GitHub Profile Pic](https://avatars.githubusercontent.com/TLGeorge)
       
     
  ## Email
-    Taneishalg@gmail.com
+  taneishalg@gmail.com
       
